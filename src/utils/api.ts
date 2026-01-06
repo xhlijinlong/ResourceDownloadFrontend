@@ -1,7 +1,8 @@
 import { useAuthStore } from '@/stores/auth'
 import router from '@/router'
 
-const API_BASE_URL = 'http://localhost:5172/api'
+// 生产环境使用相对路径（通过 nginx 代理），开发环境使用本地地址
+const API_BASE_URL = import.meta.env.PROD ? '/api' : 'http://localhost:5172/api'
 
 interface RequestOptions {
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
